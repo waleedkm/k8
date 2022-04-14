@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mycustom-kube-scheduler
+  name: mycustom-kube-scheduler
+  namespace: kube-system
+spec:
+  containers:
+  - command:
+    - --kube-scheduler
+    - 
+    image: k8s.gcr.io/kube-scheduler-amd64:v1.11.3
+    name: mycustom-kube-scheduler

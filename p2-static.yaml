@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: p1-static
+  name: p1-static
+spec:
+  containers:
+  - image: nginx
+    name: p1-static

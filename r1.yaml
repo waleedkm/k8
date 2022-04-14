@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: r1
+  labels:
+    app: front-end
+
+
+spec:
+ template:
+    metadata:
+      name: nginx
+      labels: 
+        app: front-end
+    spec:
+      containers:
+       - name: nginx
+         image: strm/helloworld-http
+
+
+ replicas: 3
+ selector:
+   matchLabels:
+    app: front-end         
+
+

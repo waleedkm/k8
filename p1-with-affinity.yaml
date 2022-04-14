@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx-with-node-affinity
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx
+    resources: {}
+  restartPolicy: Always
+
+  affinity:
+   nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+     nodeSelectorTerms:
+     - matchExpressions:
+       - key: size
+         operator: In
+         values:
+         - Large
+
