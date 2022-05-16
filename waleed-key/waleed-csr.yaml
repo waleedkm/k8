@@ -1,0 +1,26 @@
+
+#  openssl genrsa -out waleed.key 2048
+# then crete the CSR
+# openssl req -new -key waleed.key -subj "/CN=waleed" -out waleed.csr
+# the generated csr to be added as base code 64 form here
+#cat waleed.csr | base64 |tr -d "\n"
+# copy that under request
+
+
+
+apiVersion: certificates.k8s.io/v1
+#apiVersion:
+kind: CertificateSigningRequest
+metadata:
+  name: waleed
+spec:
+  signerName: waleedkm.com/kubernetes
+  groups:
+    - system:authenticated
+  usages:
+    - digital signature
+    - key encipherment
+    - server auth
+  request:
+        LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1ZqQ0NBVDRDQVFBd0VURVBNQTBHQTFVRUF3d0dkMkZzWldWa01JSUJJakFOQmdrcWhraUc5dzBCQVFFRgpBQU9DQVE4QU1JSUJDZ0tDQVFFQXZYL3l6c1JIYmN6WlViT3dJZTNlTkU1SXJjb2U2UXhqcDhZdElzblMxZzhaClZ1cks2UVlNL1RRUHlwcUpZZ3d2L1BySVFpVkFvQno2S0tUV2xIbUgvR3BJOVkwR1dETkFCTHlWWUFnd3k0K0gKekRoay9rclZ0bGxEWlJyRHRYTmlRY0lZQW8zZXhOUWoxVEpxaXErVXRrblY1Slp2emJqTnJuZzFQU0ZqaXRHZQpjb25wd0ErbGUxMnBUbi9Hb0EzbXJFNllTc1JsK1FaRWE1MGtTK2tTMFNOaHRjaW1FcWJpakZkNGdUdlNPVjVMCm1acjcyazR0UzZrbWorQTJwOUloekNWdWVzMlJGOE4wUTUrUlpSUnlGRmt1TlBuR0VtVE1kVlNncGhveW5rdkQKSkxFUG1CeFBJQ2VZM0pHME0xU1ptSlRyTFNuUzFJQnd6K3lPRjRrVXl3SURBUUFCb0FBd0RRWUpLb1pJaHZjTgpBUUVMQlFBRGdnRUJBSDN0MEhWYllZbGtQU3plTFdxWk5zcGM2NUs1ckt4OTNyc0x2UmtkOWp4NVQ1dVRhdWhBCjJybXpNY1VLcE14TitaazkrMGI0ZHN0emRSUXV6QUpyNThNcDJZYTNGS0twUkY3TGRkYmIrQk00ZHRjUTRMdGsKZlcvK2hHY2RzaUhJYnFjMUFSQXZqM25QbEpsaldGNDhpZ08wWVRQSGtxak5OdEIySElEczgwczd0M29hWHlHbwpCYnZNUTFWWkJFVUV5RW42dnJHMjlJTmlZOTVycEZDcFhhYmp4OUdWcFR3cnNDL0hNYzltMURIWEZ1KzRMT2tlClFKVHlTRHpEdWdlU04vdUpSaGViU1dQeCtOUExKTjdRQTBNb2RDUDVDcnpHSEoyT2pQbmsvNjZMU2J5M2NqSXgKRDBPTzd1dEdzaUU0Mk9SNlNJbE1EbGlnV0JGcWFBdnd6dEk9Ci0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo=
+
