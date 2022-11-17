@@ -11,6 +11,8 @@ spec:
     storage: 1Gi
   hostPath: 
     path: "/home/waleed/data"
+    
+    #sdf dfsdfsdfsdf
 
 
   
