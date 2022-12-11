@@ -15,5 +15,5 @@ EOF
 mkdir -p /etc/systemd/system/docker.service.d
 
 # Restart Docker demon
-systemctl demon-reload
+systemctl daemon-reload
 systemctl restart docker
