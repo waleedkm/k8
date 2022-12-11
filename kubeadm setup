@@ -1,3 +1,5 @@
+
+# set docker deamon file
 cat > /etc/docker/deamon.json  << EOF
 {
     “lxec-opts” : [“native.cgroupdriver=systemd],
