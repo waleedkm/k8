@@ -4,7 +4,8 @@ follow the link to install docker
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
 
 
-
+sudo usermod -aG docker $USER  (https://docs.docker.com/engine/install/linux-postinstall/)
+sudo chmod 666 /var/run/docker.sock    ---- to give permission for docker socket file
 
 -----------------------docker daemon ----------------------
 # set docker deamon file
