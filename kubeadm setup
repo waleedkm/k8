@@ -1,4 +1,12 @@
 
+
+follow the link to install docker 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
+
+
+
+
+-----------------------docker daemon ----------------------
 # set docker deamon file
 cat > /etc/docker/deamon.json  << EOF
 {
