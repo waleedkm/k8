@@ -1,0 +1,22 @@
+
+# ansible for loop tasks
+- name: 'Add name server entry if not already entered'
+  vars:
+    IP: '10.0.250.10'
+  hosts: localhost
+  become: yes
+  tasks:
+    # page 80 in resopurces
+   # - shell: 'cat /etc/resolv.conf'
+#    - name: "Update /var/www/html/index.html"
+    - lineinfile:
+        path: /etc/resolv.conf
+        line: 'nameserver {{ IP }}'
+      register: command_output
+       # create: true
+
+
+    - name: 'Update the /etc/resolv.conf file if not exist'
+
+      shell: 'echo "nameserver 10.0.250.10" >> /etc/resolv.conf'
+      when: 'command_output.stdout.find({{ IP }}) == -1'

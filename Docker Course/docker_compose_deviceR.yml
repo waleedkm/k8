@@ -1,0 +1,18 @@
+version: 3
+services: 
+  node:
+    build: ./node
+    ports:
+      - "8080:80"
+    networks:
+      - overlay
+
+  mongos:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - overlay
+
+networks:
+  overlay:

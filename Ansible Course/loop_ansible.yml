@@ -1,0 +1,17 @@
+- name: 'create multiple users'
+  hosts: all
+  tasks: 
+    - user: name='{{ item }}'  state=present
+      loop: 
+        - wd
+        - rm
+
+- name: 'create users  multiple users with UID'
+  hosts: all
+  tasks: 
+    - user: name='{{ item.name }}'  uid='{{ item.uid }}' state=present
+      loop: 
+        - name: waleed 
+          uid: 2001
+        - name: rem
+          uid: 2002
