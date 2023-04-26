@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: n1
+spec:
+  containers:
+  - image: nginx:latest
+    name: n1
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: v1
+  volumes:
+  - name: v1
+    hostPath:
+      # directory location on host
+      path: /home/waleed/ingress-test/data
+      # this field is optional
+      type: Directory
